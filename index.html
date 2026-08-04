@@ -495,8 +495,8 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
             <span>© 2026 Care Egypt Foundation. Performance appraisal digital workbook alignment.</span>
             <div class="flex gap-4">
-                <button id="send-to-hr-btn" onclick="finishAndSendToHR()" class="hover:text-white flex items-center gap-1.5">
-                    <i data-lucide="send" class="w-3.5 h-3.5"></i> Finished - Send to HR
+                <button id="send-to-hr-btn" onclick="saveToSharePoint()" class="hover:text-white flex items-center gap-1.5">
+                    <i data-lucide="send" class="w-3.5 h-3.5"></i> Save To SharePoint
                 </button>
                 <a href="mailto:HR_Team@cef-eg.org" class="hover:text-white flex items-center gap-1.5">
                     <i data-lucide="mail" class="w-3.5 h-3.5"></i> Help & HR Support: HR_Team@cef-eg.org
@@ -1408,6 +1408,8 @@ function exportToCSV() {
 // CSV file, then opens a pre-filled email to HR with the recipient/subject already set,
 // the employee email in CC, and a reminder in the body to attach the CSV file that was
 // just downloaded.
+   getAccessToken()
+saveToSharePoint()     
 async function finishAndSendToHR() {
     const employeeName = document.getElementById('prof-name').value.trim() || 'Employee';
     const employeeEmail = document.getElementById('prof-email').value.trim();
